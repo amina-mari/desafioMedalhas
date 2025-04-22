@@ -17,7 +17,7 @@ class Countries {
         let arraySorted = this.countries.sort((a, b) => a.medals - b.medals)
         console.log("\n\n------ QUADRO DE MEDALHAS ------")
         arraySorted.forEach((country, index) => {
-            console.log(`${index + 1}° lugar: ${country.name} - ${country.medals} medalhas`);
+            console.log(`${index + 1}° lugar: ${country.name} - ${country.medals} medalhas (${country.gold} ouro(s), ${country.silver} prata(s) e ${country.copper} bronze(s))`);
         })
     }
 }
@@ -44,7 +44,13 @@ while(userOption != 0) {
             const countrySilverMedals = prompt("Insira a quantidade de medalhas de PRATA que ele obteve: ");
             const countryCopperMedals = prompt("Insira a quantidade de medalhas de BRONZE que ele obteve: ");
 
-            countriesList.addCountry({name: countryName, medals: +countryGoldMedals + +countrySilverMedals + +countryCopperMedals});
+            countriesList.addCountry({
+                name: countryName, 
+                medals: +countryGoldMedals + +countrySilverMedals + +countryCopperMedals,
+                gold: countryGoldMedals,
+                silver: countrySilverMedals,
+                copper: countryCopperMedals
+            });
 
             console.log("País adicionado com sucesso!!!")
             console.log("\nO que deseja fazer agora?")
